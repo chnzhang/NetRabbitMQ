@@ -5,22 +5,22 @@ startup config
 /// <summary>
 /// 配置消息队列
 /// </summary>
-public void ConfigureServices(IServiceCollection services)
-{
-    //配置mq
-    NetRabbitMQAssembly mq = new NetRabbitMQAssembly
-    {
-        HostName = Configuration.GetSection("rabbitmq")["hostname"],
-        UserName = Configuration.GetSection("rabbitmq")["username"],
-        Password=Configuration.GetSection("rabbitmq")["password"],
-        VirtualHost= Configuration.GetSection("rabbitmq")["virtualhost"],
-        Port = Convert.ToInt32(Configuration.GetSection("rabbitmq")["port"]),
-        RequestedHeartbeat= Convert.ToInt32(Configuration.GetSection("rabbitmq")["requestedheartbeat"]),
-        AssemblyName= "RabbitMQ.NetCore"
-    };
-    //启动mq
-    mq.Start();
-}
+        public void ConfigureServices(IServiceCollection services)
+        {
+            //配置mq
+            NetRabbitMQAssembly mq = new NetRabbitMQAssembly
+            {
+                HostName = Configuration.GetSection("rabbitmq")["hostname"],
+                UserName = Configuration.GetSection("rabbitmq")["username"],
+                Password=Configuration.GetSection("rabbitmq")["password"],
+                VirtualHost= Configuration.GetSection("rabbitmq")["virtualhost"],
+                Port = Convert.ToInt32(Configuration.GetSection("rabbitmq")["port"]),
+                RequestedHeartbeat= Convert.ToInt32(Configuration.GetSection("rabbitmq")["requestedheartbeat"]),
+                AssemblyName= "RabbitMQ.NetCore"
+            };
+            //启动mq
+            mq.Start();
+        }
 
 controller action or class method
 
@@ -48,11 +48,11 @@ public class HomeController : Controller
 
 appsittings
 
-"rabbitmq": {
-"hostname": "192.168.1.XX",
-"username": "develop",
-"password": "123456",
-"port": 5672,
-"virtualhost": "/",
-"requestedheartbeat": 30
-}
+  "rabbitmq": {
+    "hostname": "192.168.1.199",
+    "username": "develop",
+    "password": "yxt315",
+    "port": 5672,
+    "virtualhost": "/",
+    "requestedheartbeat": 30
+  }
