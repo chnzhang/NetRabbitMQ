@@ -43,8 +43,7 @@
     }
     
     appsittings
-    
-  "rabbitmq": {
+    "rabbitmq": {
     "hostname": "192.168.1.199",
     "username": "develop",
     "password": "yxt315",
@@ -52,3 +51,4 @@
     "virtualhost": "/",
     "requestedheartbeat": 30
   }
+  
