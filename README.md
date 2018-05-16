@@ -50,5 +50,5 @@
     "port": 5672,
     "virtualhost": "/",
     "requestedheartbeat": 30
-  }
+  
   
