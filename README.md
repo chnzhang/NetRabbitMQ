@@ -1,10 +1,9 @@
-# NetRabbitMQ
-.net core rabbitmq 注解方式使用
-startup config
-
-/// <summary>
-/// 配置消息队列
-/// </summary>
+       startup config
+       
+       /// <summary>
+        /// 配置消息队列
+        /// </summary>
+        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
             //配置mq
@@ -21,33 +20,30 @@ startup config
             //启动mq
             mq.Start();
         }
-
-controller action or class method
-
-/// <summary>
-/// 执行消息队列
-/// </summary>
-[Produces("application/json")]
-[Route("api/Home")]
-[NetRabbitMQ]
-public class HomeController : Controller
-{
-
-    /// <summary>
-    /// 执行消息队列
-    /// </summary>
-    /// <param name="message"></param>
-    [HttpGet]
-    [NetRabbitMQ(Queue = "micro.delay.queue.exchange")]
-    public bool TestWrite(string message)
+        
+    controller and action
+        
+    [Produces("application/json")]
+    [Route("api/Home")]
+    [NetRabbitMQ]
+    public class HomeController : Controller
     {
-        Console.WriteLine("time:"+DateTime.Now+"msg:"+message);
-        return true;
+
+        /// <summary>
+        /// 执行消息队列
+        /// </summary>
+        /// <param name="message"></param>
+        [HttpGet]
+        [NetRabbitMQ(Queue = "micro.delay.queue.exchange")]
+        public bool TestWrite(string message)
+        {
+            Console.WriteLine("time:"+DateTime.Now+"msg:"+message);
+            return true;
+        }
     }
-}
-
-appsittings
-
+    
+    appsittings
+    
   "rabbitmq": {
     "hostname": "192.168.1.199",
     "username": "develop",
